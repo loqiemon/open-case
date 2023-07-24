@@ -12,7 +12,7 @@ function getRandomObjectByProbability(objectsArray: ObjProb[]): ObjProb | null {
     for (const obj of objectsArray) {
         currentProbability += obj.prob;
         if (randomNum <= currentProbability) {
-        return obj;
+            return obj;
         }
     }
 

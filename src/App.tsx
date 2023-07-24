@@ -9,7 +9,7 @@ let arr:ItemProps[] = [
 
 ]
 
-for (let i = 0; i<10; i++) {
+for (let i = 0; i<80; i++) {
   arr.push(  {itemImage:'https://shorturl.at/pxRS7', itemName: `${i}`},)
 }
 
@@ -24,7 +24,7 @@ function App() {
 
   return (
     <div className='w-full overflow-hidden'>
-      <span className='fixed top-3 border-4 border-sky-500 w-1 h-10'></span>
+      <span className='fixed top-3 border-4 border-sky-500 w-1 h-10 bg-orange-600'></span>
       <ItemList items={arr}/>
       {/* <Button onClick={ap} text={'add'}/> */}
     </div>
