@@ -12,9 +12,11 @@ function ItemList({items}: ItemListProps) {
 
 
     const spin = ():void => {
+        console.log(items)
         // setPos(645)
         const len:number = items.length;
-        const drop: number = Math.floor(getRandomNumber(0, len))
+        // const drop: number = Math.floor(getRandomNumber(0, len))
+        const drop: number = Math.floor(getRandomNumber(len-7, len-5))
         const margin:number = (drop*129)-getRandomNumber(485, 609); //485-609
         setPos(-margin)
     }
@@ -23,7 +25,12 @@ function ItemList({items}: ItemListProps) {
   return (
     <>
         <div className='flex flex-row gap-1px bg-green-300  ease-in duration-1000 overflow-hidden ' style={{marginLeft: `${pos}px`}}>
-            {items.map((item, index) => <Item itemImage={item.itemImage} itemName={item.itemName}  key={index}/>)}
+            {items.map((item, index) => <Item 
+                                            itemImage={item.itemImage}
+                                            itemName={item.itemName} 
+                                            key={index}
+                                            prob={item.prob}
+                                        />)}
         </div>
         <button onClick={spin}>Start</button>
     </>
