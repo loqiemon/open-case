@@ -6,15 +6,24 @@ import spinSound from '../../assets/audio/spinSound.mp3';
 import Button from '../Button/Button';
 
 //Необходимо получать с сервера
-const arr:ItemProps[] = [{itemImage:'https://shorturl.at/pxRS7', itemName: `Asiimov`, prob: 0.1}, {itemImage:'https://shorturl.at/pxRS7', itemName: `Apple`, prob: 0.3}, {itemImage:'https://shorturl.at/pxRS7', itemName: `Fracture`, prob: 0.5}, {itemImage:'https://shorturl.at/pxRS7', itemName: `Rentgen`, prob: 0.9},]
+const arr:ItemProps[] = [{itemImage:'https://goo.su/diQvz8', itemName: `AK-47 | Азимов`, prob: 0.08, color: 'Covert'},
+                         {itemImage:'https://goo.su/QDZsj', itemName: `M4A4 | Temukau`, prob: 0.03, color: 'Covert'},
+                         {itemImage:'https://goo.su/7rxvu', itemName: `MP5-SD | Умелые ручки`, prob: 0.9, color: 'Restricted'},
+                         {itemImage:'https://goo.su/C9VxL5F', itemName: `P2000 | Дух огня`, prob: 0.14, color: 'Covert'},
+                         {itemImage:'https://goo.su/wMjS', itemName: `SSG 08 | Мейнфрейм 001`, prob: 0.95, color: 'Industrial'},
+                         {itemImage:'https://goo.su/ExHq4', itemName: `Sawed-Off | Принцесса пустошей`, prob: 0.44, color: 'Classified'},
+                         {itemImage:'https://goo.su/ZMrK', itemName: `FAMAS | Голубые брызги`, prob: 0.74, color: 'Consumer'},
+                         {itemImage:'https://goo.su/zA7n', itemName: `P250 | Азимов`, prob: 0.24, color: 'Classified'},
+
+                        ]
 let items:ItemProps[] = []
 
 
 
 function ItemList() {
-    const styleStr = 'h-36 flex flex-row gap-1px bg-green-300  overflow-hidden'
+    const styleStr = 'h-36 flex flex-row gap-1px overflow-hidden'
 
-    const [pos, setPos] = useState<number>(490);
+    const [pos, setPos] = useState<number>(1225);
     const [style, setStyle] = useState<string>(styleStr+'ease-[cubic-bezier(0.98,0.95,0.98,1)] duration-6000');
     const [activeButton, setActiveButton] = useState(false);
 
@@ -48,6 +57,7 @@ function ItemList() {
                                             itemName={item.itemName} 
                                             key={index}
                                             prob={item.prob}
+                                            color={item.color}
                                         />)}
         </div>
         <Button onClick={spin} text='Start' disabled={activeButton}/>
