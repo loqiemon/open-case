@@ -19,5 +19,7 @@ function getRandomObjectByProbability(objectsArray: ObjProb[]): ObjProb | null {
     return null;
 }
 
+export {getRandomObjectByProbability}
+
 
 

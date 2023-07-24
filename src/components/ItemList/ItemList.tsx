@@ -1,31 +1,31 @@
 import React, {useState} from 'react'
 import Item, {ItemProps} from '../Item/Item'
+import getRandomNumber from '../../utils/randomNumber';
 
 export type ItemListProps = {
     items: ItemProps[]
 }
 
 function ItemList({items}: ItemListProps) {
-    const [pos, setPos] = useState<number>(-490);
+    const [pos, setPos] = useState<number>(1225);
 
-    const av = ():void => {
-        // setPos(490)
-        console.log('start spin');
+
+
+    const spin = ():void => {
+        // setPos(645)
         const len:number = items.length;
-        const drop: number = Math.floor(Math.random() * len)
-        console.log(drop, 'drop')
-        const margin:number = (drop*129)-490;
-        console.log(margin)
-        setPos(margin)
+        const drop: number = Math.floor(getRandomNumber(0, len))
+        const margin:number = (drop*129)-getRandomNumber(485, 609); //485-609
+        setPos(-margin)
     }
 
     
   return (
     <>
-        <div className='flex flex-row gap-1px bg-green-300  ease-in duration-1000 overflow-hidden' style={{marginLeft: `-${pos}px`}}>
-            {items.map(item => <Item itemImage={item.itemImage} itemName={item.itemName}  />)}
+        <div className='flex flex-row gap-1px bg-green-300  ease-in duration-1000 overflow-hidden ' style={{marginLeft: `${pos}px`}}>
+            {items.map((item, index) => <Item itemImage={item.itemImage} itemName={item.itemName}  key={index}/>)}
         </div>
-        <button onClick={av}>Start</button>
+        <button onClick={spin}>Start</button>
     </>
   )
 }
