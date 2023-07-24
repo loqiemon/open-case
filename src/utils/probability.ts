@@ -20,10 +20,10 @@ function getRandomObjectByProbability(objectsArray: ObjProb[]): ObjProb | null {
 }
 
 
-function fillArrayByProbability(array: ObjProb[], size: number): ObjProb[] {
+function fillArrayByProbability<T extends {prob: number}>(array: T[], size: number): T[] {
     const totalProbability = array.reduce((sum, obj) => sum + obj.prob, 0);
 
-    const resultArray: ObjProb[] = [];
+    const resultArray: T[] = [];
 
 
     for (let i = 0; i < size; i++) {

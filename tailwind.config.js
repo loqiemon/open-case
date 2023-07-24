@@ -16,6 +16,13 @@ export default {
         '1px': '1px',
       }
     },
+    transitionDuration: {
+      '6000': '6000ms',
+    },       
+    transitionTimingFunction: {
+      'custom': 'cubic-bezier(0.2, 0.3, 0.2, 1)',
+
+    }
   },
   plugins: [],
 }
